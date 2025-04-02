@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: api-service #(we could call it anything, but this is a fine name)
+spec:
+  selector:
+    app: synergychat-api #I'm going to let you figure out what should be here. This is how the service knows which pods to route traffic to.
+  type: ClusterIP
+  ports: #An array of port objects. You need one entry:
+  - port: 80
+    targetPort: 30080
+    # nodePort: 30080 #(this is the port that the pods are listening on)

@@ -13,6 +13,10 @@ spec:
     metadata:
       labels:
         app: synergychat-crawler
-  envFrom:
-  - configMapRef:
-      name: synergychat-crawler-configmap
+    spec:
+      containers:
+      - image: bootdotdev/synergychat-crawler:latest
+        name: synergychat-crawler
+        envFrom:
+        - configMapRef:
+            name: synergychat-crawler-configmap
