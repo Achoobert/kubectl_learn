@@ -40,5 +40,11 @@ kubectl get deployment synergychat-web -o yaml > web-deployment.yaml
 
 To apply the changes, run:
 kubectl apply -f web-deployment.yaml
+kubectl apply -f web-service.yaml
 (official) creating a YAML file and use
 kubectl apply -f
+
+minikube tunnel -c
+
+kubectl get pvc
+kubectl get pv
