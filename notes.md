@@ -45,6 +45,25 @@ kubectl apply -f web-service.yaml
 kubectl apply -f
 
 minikube tunnel -c
+<!-- synchat.internal to the web-service
+synchatapi.internal to the api-service 
+http://synchatapi.internal/healthz
+
+-->
 
 kubectl get pvc
 kubectl get pv
+
+// Namespace (ns)
+kubectl get ns
+kubectl create ns
+kubectl create ns crawler
+
+// ensure your resources are  redeployed in the crawler namespace:
+kubectl -n crawler get pods
+kubectl -n crawler get svc
+kubectl -n crawler get configmaps
+
+kubectl delete deployment <deployment-name>
+kubectl delete service <service-name>
+kubectl delete configmap <configmap-name>

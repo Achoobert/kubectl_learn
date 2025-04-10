@@ -31,6 +31,11 @@ spec:
     spec:
       containers:
       - env:
+        - name: CRAWLER_BASE_URL
+          valueFrom:
+            configMapKeyRef:
+              key: CRAWLER_BASE_URL
+              name: synergychat-api-configmap
         - name: API_PORT
           valueFrom:
             configMapKeyRef:
@@ -43,6 +48,13 @@ spec:
               name: synergychat-api-configmap
         image: bootdotdev/synergychat-api:latest
         imagePullPolicy: Always
+        # volumes:
+        # - name: synergychat-api-volume
+        #   persistentVolumeClaim:
+        #     claimName: synergychat-api-pvc
+        volumeMounts:
+        - name: synergychat-api-volume
+          mountPath: /persist
         name: synergychat-api
         resources: {}
         terminationMessagePath: /dev/termination-log
@@ -52,6 +64,13 @@ spec:
       schedulerName: default-scheduler
       securityContext: {}
       terminationGracePeriodSeconds: 30
+      volumes:
+      - name: synergychat-api-volume
+        persistentVolumeClaim:
+          claimName: synergychat-api-pvc
+      # volumeMounts:
+      # - name: synergychat-api-volume
+      #   mountPath: /persist
 status:
   availableReplicas: 1
   conditions:

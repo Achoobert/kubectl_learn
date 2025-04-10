@@ -5,3 +5,4 @@ metadata:
 data:
   WEB_PORT: "8080"
   API_URL: http://synchatapi.internal
+  CRAWLER_BASE_URL: http://crawler-service.crawler.svc.cluster.local

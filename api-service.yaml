@@ -9,6 +9,7 @@ spec:
   ports: #An array of port objects. You need one entry:
   - port: 80
     # targetPort: 80
+    # When api pod restarted this has to be swapped back and forth???
     # targetPort: 8080
     targetPort: 30080
     # nodePort: 30080 #(this is the port that the pods are listening on
