@@ -67,3 +67,11 @@ kubectl -n crawler get configmaps
 kubectl delete deployment <deployment-name>
 kubectl delete service <service-name>
 kubectl delete configmap <configmap-name>
+
+# metrics with top:
+kubectl top pod
+# hpa will monitor the CPU usage of the pods in it's deployment
+kubectl get hpa
+
+kubectl apply -f 
+kubectl delete deployment synergychat-
